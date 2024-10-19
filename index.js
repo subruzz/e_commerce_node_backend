@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const authRouter=require('./routes/auth')
 const cors = require('cors'); 
-
+const authRouter=require('./routes/auth')
+const bannerRouter=require('./routes/banner')
+const categoryRouter=require('./routes/category')
+const subCatetoryRouter=require('./routes/sub_category');
 // Define the port number where the server will listen
 const PORT = 3000;
 
@@ -14,6 +16,9 @@ const DB = "mongodb+srv://subruzz4424:Subruzz44%40@cluster0.rqewg.mongodb.net/?r
 
 app.use(express.json());
 app.use(authRouter);
+app.use(bannerRouter);
+app.use(categoryRouter);
+app.use(subCatetoryRouter);
 // Connect to MongoDB using mongoose
 mongoose.connect(DB)
     .then(() => console.log('MONGO DB CONNECTED'))
